@@ -15,7 +15,8 @@ while not fnd:
 
 width, height = img.size
 
-len = int(input("enter the side of cropped images :- "))
+w_len = int(input("enter the width of cropped images :- "))
+h_len = int(input("enter the height of cropped images :- "))
 
 folder = False
 
@@ -31,10 +32,10 @@ n = 0
 
 os.system('cls')
 
-for i in range(0, width, len):
-    for j in range(0, height, len):
+for i in range(0, width, w_len):
+    for j in range(0, height, h_len):
         n+=1
-        crp_img = img.crop((i, j, i+len, j+len))
+        crp_img = img.crop((i, j, i+w_len, j+h_len))
         path = title + "/" + title + "_" + str(n) +".png"
         crp_img.save(path)
         if n%4 == 0:
